@@ -29,9 +29,17 @@ for (int i = 0; i < ESTUDIANTES; i++) {
   for (int i = 0; i < ESTUDIANTES; i++) {
         float suma = 0;
         for (int j = 0; j < ASIGNATURAS; j++) {
-            suma += calificaciones[i][j]; // FIX: Era +=, no +-
+            suma += calificaciones[i][j]; 
         }
-        promedios_est[i] = suma / ASIGNATURAS; // FIX: Era promedios_est, no esl
+        promedios_est[i] = suma / ASIGNATURAS; 
     }
+    // Calculo de promedios por asignatura - Jesus Vera
+    for (int j = 0; j < ASIGNATURAS; j++)   {
+        float suma = 0;
+        for (int i = 0; i < ESTUDIANTES; i++) {
+            suma += calificaciones[i][j];
+        }
+        promedios_asig[j] = suma / ESTUDIANTES;
+    }   
     return 0;
 }
