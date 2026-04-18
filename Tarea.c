@@ -11,6 +11,18 @@ int main(){
     int reprobados_asig[ASIGNATURAS] = {0};
 
     printf("SISTEMA DE GESTION ACADEMICA\n\n");
+//validacion
+for (int i = 0; i < ESTUDIANTES; i++) {
+    for (int j = 0; j < ASIGNATURAS; j++) {
+        do {
+            printf("Ingrese la calificacion del estudiante %d en la asignatura %d: ", i + 1, j + 1);
+            scanf("%f", &calificaciones[i][j]);
+            if (calificaciones[i][j] < 0 || calificaciones[i][j] > 10) {
+                printf("Calificacion invalida. Por favor ingrese un valor entre 0 y 10.\n");
+            }
+        } while (calificaciones[i][j] < 0 || calificaciones[i][j] > 10);
+    }
+    printf("\n");
 
-
+}
 }
