@@ -11,7 +11,7 @@ int main(){
     int reprobados_asig[ASIGNATURAS] = {0};
 
     printf("SISTEMA DE GESTION ACADEMICA\n\n");
-//validacion
+ //Validacion - Jesus Vera
 for (int i = 0; i < ESTUDIANTES; i++) {
     for (int j = 0; j < ASIGNATURAS; j++) {
         do {
@@ -25,4 +25,13 @@ for (int i = 0; i < ESTUDIANTES; i++) {
     printf("\n");
 
 }
+//Calculo de promedios por estudiante - Omar Nunez
+  for (int i = 0; i < ESTUDIANTES; i++) {
+        float suma = 0;
+        for (int j = 0; j < ASIGNATURAS; j++) {
+            suma += calificaciones[i][j]; // FIX: Era +=, no +-
+        }
+        promedios_est[i] = suma / ASIGNATURAS; // FIX: Era promedios_est, no esl
+    }
+    return 0;
 }
