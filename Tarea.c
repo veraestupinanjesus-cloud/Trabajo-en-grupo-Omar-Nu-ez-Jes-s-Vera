@@ -55,8 +55,31 @@ for (int i = 0; i < ESTUDIANTES; i++) {
             if (calificaciones[i][j] < baja_est[i]) baja_est[i] = calificaciones[i][j];
         }
     }
+   // Calificacion mas alta y baja por asignatura y aprobados/reprobados - Jesus Vera
+    for (int j = 0; j < ASIGNATURAS; j++) {
+        alta_asig[j] = calificaciones[0][j];
+        baja_asig[j] = calificaciones[0][j];
+        for (int i = 0; i < ESTUDIANTES; i++) {
+            if (calificaciones[i][j] > alta_asig[j]) alta_asig[j] = calificaciones[i][j];
+            if (calificaciones[i][j] < baja_asig[j]) baja_asig[j] = calificaciones[i][j];
 
-    // Continua la Calificacion mas alta y baja por asignatura y El número de estudiantes aprobados y reprobados por asignatura.
+            if (calificaciones[i][j] >= 6) {
+                aprobados_asig[j]++;
+            } else {
+                reprobados_asig[j]++;
+            }
+        }
+    }
 
+    // Reporte de resultados finales - Jesus Vera
+    printf("\n--- RESULTADOS POR ESTUDIANTE ---\n");
+    for (int i = 0; i < ESTUDIANTES; i++) {
+        printf("Estudiante %d -> Promedio: %.2f | Calificacion mas alta: %.2f | Calificacion mas baja: %.2f\n", i + 1, promedios_est[i], alta_est[i], baja_est[i]);
+    }
+
+    printf("\n--- RESULTADOS POR ASIGNATURA ---\n");
+    for (int j = 0; j < ASIGNATURAS; j++) {
+        printf("Asignatura %d -> Promedio: %.2f | Calificacion mas alta: %.2f | Calificacion mas baja: %.2f | Aprobados: %d | Reprobados: %d\n", j + 1, promedios_asig[j], alta_asig[j], baja_asig[j], aprobados_asig[j], reprobados_asig[j]);
+    }
     return 0;
 }
