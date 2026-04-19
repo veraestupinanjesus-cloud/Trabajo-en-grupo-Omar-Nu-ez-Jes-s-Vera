@@ -41,5 +41,22 @@ for (int i = 0; i < ESTUDIANTES; i++) {
         }
         promedios_asig[j] = suma / ESTUDIANTES;
     }   
+
+    // Variables - Calificacion mas alta y baja por Estudiante y por Asignatura
+    float alta_est[ESTUDIANTES], baja_est[ESTUDIANTES];
+    float alta_asig[ASIGNATURAS], baja_asig[ASIGNATURAS];
+
+    // Calificacion mas alta y baja por estudiante - Omar Nunez
+    for (int i = 0; i < ESTUDIANTES; i++) {
+        alta_est[i] = calificaciones[i][0];
+        baja_est[i] = calificaciones[i][0];
+        for (int j = 0; j < ASIGNATURAS; j++) {
+            if (calificaciones[i][j] > alta_est[i]) alta_est[i] = calificaciones[i][j];
+            if (calificaciones[i][j] < baja_est[i]) baja_est[i] = calificaciones[i][j];
+        }
+    }
+
+    // Continua la Calificacion mas alta y baja por asignatura y El número de estudiantes aprobados y reprobados por asignatura.
+
     return 0;
 }
